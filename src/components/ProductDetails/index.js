@@ -4,11 +4,20 @@ import { useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch } from 'react-redux';
 import { addCartItem } from '../../Redux/Cart/cartSlice';
-const ProductDetails = () => {
+import finalPropsSelectorFactory from 'react-redux/es/connect/selectorFactory';
 
+//element destructuring of array/object
+
+//Props 
+//props.typeOfProduct;
+const ProductDetails = (   ) => {
+
+
+
+    
 
     const dispatch = useDispatch();
-    const location=useLocation();
+    const location=useLocation(); //window.location 
     const product= location.state.product;
     console.log(location.state.product );
 
@@ -18,17 +27,34 @@ const addToCart= function()
     dispatch(addCartItem(payload));
 }
 
+/*
+let style={
+
+
+};
+
+React=> (styled components)  =>Third party library
+let divElement= div.createStyledComponent({
+
+//css
+});
+
+
+*/
+
+
+
+
   return (
-    <div className='row container my-5 product-details-container'>
+    <div  className='row container my-5 product-details-container'>
       
                 <div className='col-5 product-img-container'>
                      <img src={require('../../assets/images/shop/'+  product.product_img)}/>
     
     
                 </div>
-    
-                
-    
+
+               
                 <div className='product-info col-7'>
                 <span className='product-name'>
           {product.product_name}

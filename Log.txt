@@ -1,0 +1,91 @@
+
+React => Views ( React)
+
+remaining aspects are handled by third party libraries or integrations
+
+
+SSR=> Server side rendering 
+(
+    payload + html+js+css(page)
+     SSR=> render the payload on the page before returning the page for a given route
+
+(Django)
+     /exclusiveProductDetails/prod1 
+     (SSR adds security and doesnt expose vulnerable parts of
+     the codebase to the browser/client)
+
+
+)
+
+
+Component =>
+1) the business logic of what the view will handled
+2) What it will show, returned as html (jsx,tsx)
+
+
+Hook=> convenience function/wrapper in React for certain key aspects
+of rendering, variable management. 
+
+
+1) Component hierarchy
+
+a) Have one main component which contains the layout elements as child components 
+b) Use percentage based responsive layout for ensuring consistent and beautiful
+rendering across all device sizes 
+
+
+2) Variable management within a component  =>useState
+
+
+//props , we want the rendering behaviour or the business logic for a 
+//component to change based on the parent component
+  //prop drilling
+
+3) Variable management between components
+//have one parent component or use parent components to specify property values/props for
+affecting the child component behaviour 
+
+
+Flux architecture:
+
+ sockets => unix 
+
+ event emitters=> nodejs
+ Signals
+ RxJS
+
+   whenever variable changes in any component , dispatch the change to a central store 
+   a store is an object containing properties which are functions called reducers
+
+   obj.propertyName 
+   obj.numberofProducts = [(),()] {reducer}
+   [type=>reducer[(),()]]
+   for every type of dispatch,there are separate properties in the store called reducers 
+   a reducer can in turn have multiple functions =>actions 
+
+   //components which subscribe to that change will get affected 
+
+
+//cartCount => separate reducer 
+
+//reducer => 
+//if( theSameProductHasNotBeenClicked)
+{
+cartCount= cartCount+1
+}
+
+   the central store will initiate a reducer
+   
+    reducer will execute the  assigned function/action based on the dispatched change type 
+
+
+
+//react will force a rerender on the component every time a state variable changes
+
+maintain all the variables in the main component as statevariables
+bind the change handlers from the main component to the child component through props 
+this will allow us to share variables between the main component and all the child components
+
+localStorage => setState in combination with localStorage ( not advisable as a security practice )
+
+

@@ -18,19 +18,22 @@ import MainComponent from './components/MainComponent/MainComponent';
 import LandingPage from './components/LandingPage';
 import ProductDetails from './components/ProductDetails';
 import Cart from './components/Cart';
+import { useState } from 'react';
 
 
 // import your icons
 function App() {
+
+  let [cartCount,setCartCount ] =useState(0);
   library.add(fab, fas, far)
   return (
     <div className="App">
-<TopNav />
+<TopNav  />
 <CatNav />
 <Routes>
 <Route path="/cart" element={<Cart />} />
   
-  <Route path="/" element={<LandingPage />} />
+  <Route path="/" element={<LandingPage  />} />
   <Route path="/productdetails" element={<ProductDetails />} />
 </Routes>
 

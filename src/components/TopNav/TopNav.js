@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const TopNav = function()
 {
 
-
+//console.log("Cart count is:"+cartCount)
   const successHandler=(res)=>{
 
     console.log(res);

@@ -6,19 +6,41 @@ import { useEffect } from 'react';
 import { getProducts } from '../../Redux/Product/actions';
 import { addCartItem } from '../../Redux/Cart/cartSlice';
 import { Link } from 'react-router-dom';
-const Products=()=>{
+//variable destructuring of props
+const Products=({typeOfProducts,showProducts, changeMainComponentVariable,numberOfProducts})=>{
+
+      //local state , global state
+
+    //local => variables within the component and the view  =>useState 
+
+    //global state=> Redux, global state management for memory management across
+     //multiple components, ContextAPI
+
+ //useState
+
+ //react can track variable changes using useState mostly
 
     let productData= useSelector(state=>state.productReducer.products);
     
     let cartData=useSelector(state=>state.cartReducer)
-    console.log(cartData);
+    console.log("component created:"+showProducts+":"+numberOfProducts);
     let dispatch= useDispatch();
     useEffect(()=>{
 
-        console.log("use effect called");
+        console.log("use effect called:"+showProducts);
          dispatch(getProducts());
 
-    },[] )
+         return function()
+         {
+
+           console.log("clean up called for product components");
+           //clean all your unused data within the component
+
+           //javascript is gc (mark and sweep)
+
+                   };
+
+    }, [] )
 
     const addToCart= (product)=>{
 
@@ -27,11 +49,24 @@ const Products=()=>{
         dispatch(addCartItem(product));
     }
 
+
+    let productDataNew= [];
+    for(let i=0;i<numberOfProducts;i++)
+    {
+      if(productData[i])
+      {
+      productDataNew.push(productData[i]);
+      }
+    }
     
     return(
  
         <div className='product-container'>
-    {productData.map((eachProduct,index)=>{
+
+        <button onClick={()=>changeMainComponentVariable(40)}>Change main component variable</button>
+
+
+    {showProducts &&   productDataNew.map((eachProduct,index)=>{
 
             
 return(
